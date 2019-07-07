@@ -1,0 +1,23 @@
+{
+  "name": "array_and_strings",
+  "version": "1.0.0",
+  "description": "algos creation with javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jocelo/js_algos.git"
+  },
+  "keywords": [
+    "algorithms",
+    "javascript"
+  ],
+  "author": "jocelo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jocelo/js_algos/issues"
+  },
+  "homepage": "https://github.com/jocelo/js_algos#readme"
+}
