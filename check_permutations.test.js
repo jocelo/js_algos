@@ -1,15 +1,25 @@
 const is_perm = require("./array_and_strings/is_permutation.js");
 
-let leftStr = 'dog',
-	rightStr = 'god';
 
-test(`Comparing ${leftStr} vs ${rightStr}`, () => {
-	expect(is_perm(leftStr, rightStr)).toBe(true);
-})
+describe('Checking permutations', () => {
 
-let leftStr2 = 'Dog',
-rightStr2 = 'god';
+	let comparisons = [
+		{left: 'dog', right: 'god', toBe: true},
+		{left: 'dog', right: 'goD', toBe: false},
+		{left: 'abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()_+', right: '+_)(*&^%$#@!0987654321abcdefghijklmnopqrstuvwxyz', toBe: true},
+		{left: 'abc', right: 'cba ', toBe: false},
+		{left: 'kee!', right: '!eek', toBe: true},
+		{left: 'x     y', right: 'xy', toBe: false},
+		{left: '', right: '', toBe: true},
+		{left: '', right: 'z', toBe: false},
+		{left: 'a', right: '', toBe: false},
+		{left: 'a', right: 'A', toBe: false},
+	];
 
-test(`Comparing ${leftStr2} vs ${rightStr2}`, () => {
-	expect(is_perm(leftStr2, rightStr2)).toBe(false);
+	comparisons.forEach(singleTest=>{
+		test(`Comparing ${singleTest.left} vs ${singleTest.right}`, () => {
+			expect(is_perm(singleTest.left, singleTest.right)).toBe(singleTest.toBe);
+		})
+	});
+	
 })
