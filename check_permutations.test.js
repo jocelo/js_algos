@@ -1,8 +1,6 @@
 const is_perm = require("./array_and_strings/is_permutation.js");
 
-
 describe('Checking permutations', () => {
-
 	let comparisons = [
 		{left: 'dog', right: 'god', toBe: true},
 		{left: 'dog', right: 'goD', toBe: false},
