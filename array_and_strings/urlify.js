@@ -25,4 +25,17 @@ parsing_in_reverse = (normalUrl) => {
 	return parsedUrl.join('');
 }
 
+parsing_in_reverse_vanilla = (normalUrl) => {
+	let parsedUrl = '';
+	for (let i = normalUrl.length ; i >= 0 ; i--) {
+		if (normalUrl[i] === '') {
+			parsedUrl = '%20'+parsedUrl;
+		} else {
+			parsedUrl = normalUrl[i] + parsedUrl;
+		}
+	}
+
+	return parsedUrl;
+}
+
 module.exports = parsing_in_reverse;
