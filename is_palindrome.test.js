@@ -1,14 +1,19 @@
-const is_perm = require("./");
+const is_perm = require("./array_and_strings/is_palindrome");
 
-describe('Checking for what', () => {
+describe('Checking for palindrome permutation', () => {
 	let comparisons = [
-		{left: '1', right: '2', toBe: true},
-		{left: '1', right: '3', toBe: false}
+		{string: 'taco cat', toBe: true},
+		{string: 'cacapipi', toBe: true},
+		{string: 'cacaypipi', toBe: true},
+		{string: 'cocaypipi', toBe: false},
+		{string: '', toBe: true},
+		{string: 'abc', toBe: false},
+		{string: 'a b g h g a bz', toBe: false},
 	];
 
 	comparisons.forEach(singleTest=>{
-		test(`Checking for ${singleTest.left}`, () => {
-			expect(is_perm(singleTest.left)).toBe(singleTest.toBe);
+		test(`Checking for ${singleTest.string}`, () => {
+			expect(is_perm(singleTest.string)).toBe(singleTest.toBe);
 		})
 	});
 	
