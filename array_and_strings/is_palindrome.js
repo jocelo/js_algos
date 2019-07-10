@@ -1,4 +1,4 @@
-// Exercise 1.3
+// Exercise 1.4
 // Check if two strings are permutations of a palindrome
 // means a different arrangement of letters from a word that is a palindrome
 
