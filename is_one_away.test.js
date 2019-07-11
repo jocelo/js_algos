@@ -2,8 +2,7 @@ const is_one_away = require("./array_and_strings/one_away");
 
 describe('Checking two strings for one being one edit away from the other', () => {
 	let comparisons = [
-		{left: 'poca', right: 'poco', toBe: true},
-		{left: 'poca', right: 'puc', toBe: false}
+		{left: 'pacoo', right: 'pac', toBe: true},
 	];
 
 	comparisons.forEach(singleTest=>{
