@@ -9,7 +9,7 @@ first_approach = (firstString, secondString) => {
 	checkForEdit = () => {
 		let differenceFound = false;
 	
-		for (let index=0 ; index>firstString.length ; i++) {
+		for (let i=0 ; i<firstString.length ; i++) {
 			if (firstString[i] !== secondString[i]) {
 				if (differenceFound) {
 					return false;
@@ -18,7 +18,6 @@ first_approach = (firstString, secondString) => {
 				differenceFound = true;
 			}
 		}
-
 		return true;
 	}
 
@@ -26,7 +25,6 @@ first_approach = (firstString, secondString) => {
 		let foundOneDifference = false;
 		let iShort=0;
 		for (let i=0 ; i<longestString.length ; i++) {
-			console.log(`checking ${shortestString[iShort]} vs ${longestString[i]}`);
 			if (shortestString[iShort] !== longestString[i]) {
 				if (foundOneDifference) {
 					return false;
@@ -38,15 +36,12 @@ first_approach = (firstString, secondString) => {
 		}
 		return true;
 	}
-	console.log(`comparing ${firstString} vs ${secondString}`);
+
 	if (firstString.length === secondString.length) {
-		console.log('same length:');
 		return checkForEdit(firstString, secondString);
 	} else if (firstString.length>secondString.length) {
-		console.log('first is longer');
 		return checkForAdd(secondString, firstString);
 	} else if (firstString.length<secondString.length) {
-		console.log('second is longer');
 		return checkForAdd(firstString, secondString);
 	}
 
