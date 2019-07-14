@@ -20,8 +20,4 @@ compress = (longString) => {
 	return compressedString;
 }
 
-let string = 'aaaabbdddadbdcdebdggzzz';
-console.log( string, compress(string) );
-
-string = 'abcdefg';
-console.log( string, compress(string) );
+module.exports = compress;
