@@ -39,7 +39,7 @@ describe('Checking two strings for one being one edit away from the other', () =
 
 	comparisons.forEach(singleTest=>{
 		test(`is ${singleTest.left} 1 edit away from ${singleTest.right} ?`, () => {
-			expect(is_one_away(singleTest.left, singleTest.right)).toBe(singleTest.toBe);
+			expect(is_one_away(singleTest.left, singleTest.right)).toMatch(singleTest.toBe);
 		})
 	});
 	

@@ -16,7 +16,7 @@ describe('Checking permutations', () => {
 
 	comparisons.forEach(singleTest=>{
 		test(`Comparing ${singleTest.left} vs ${singleTest.right}`, () => {
-			expect(is_perm(singleTest.left, singleTest.right)).toBe(singleTest.toBe);
+			expect(is_perm(singleTest.left, singleTest.right)).toMatch(singleTest.toBe);
 		})
 	});
 	
