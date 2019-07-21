@@ -6,13 +6,15 @@ const Node = function(value) {
 const printList = function(node) {
 	var head = node;
 	var keepGoing = true;
+	var values = '';
 	while (keepGoing) {
 		if (head.next == null) {
 			keepGoing = false;
 		}
-		console.log(head.value);
+		values += `${head.value} `;
 		head = head.next;
 	}
+	console.log(`=> ${values}`);
 }
 
 module.exports = {
