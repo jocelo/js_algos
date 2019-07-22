@@ -54,4 +54,27 @@ while(nodeLeft) {
 	//node = node.next;
 }
 
+var stack = [];
+while(nodeLeft) {
+	let addTmp = nodeLeft.value + nodeRight.value + carrierValue;
+
+	if (addTmp >= 10) {
+		addTmp -= 10;
+		carrierValue = 1;
+	} else {
+		carrierValue = 0;
+	}
+
+	stack.unshift(addTmp);
+
+	nodeLeft = nodeLeft.next;
+	nodeRight = nodeRight.next;
+	
+	//node = node.next;
+}
+
+console.log('stack', stack);
+
+
+
 fnPrint(resultHead);
