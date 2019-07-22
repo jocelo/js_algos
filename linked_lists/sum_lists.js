@@ -2,6 +2,9 @@ const linkedListObj = require('./node');
 const Node = linkedListObj.Node;
 const fnPrint = linkedListObj.printList;
 
+// check when one of the lists is greater thatn the other
+// also check when a new node needs to be created after adding
+
 var onesFirst = new Node(7);
 var o11 = new Node(1);
 var o12 = new Node(6);
@@ -55,15 +58,11 @@ while(nodeLeft) {
 }
 
 var stack = [];
-while(nodeLeft) {
-	let addTmp = nodeLeft.value + nodeRight.value + carrierValue;
+nodeLeft = onesFirst;
+nodeRight = onesSecond;
 
-	if (addTmp >= 10) {
-		addTmp -= 10;
-		carrierValue = 1;
-	} else {
-		carrierValue = 0;
-	}
+while(nodeLeft) {
+	let addTmp = nodeLeft.value + nodeRight.value;
 
 	stack.unshift(addTmp);
 
@@ -71,6 +70,11 @@ while(nodeLeft) {
 	nodeRight = nodeRight.next;
 	
 	//node = node.next;
+}
+
+for(let i of stack) {
+	const yy = i;
+	console.log('yy', i);
 }
 
 console.log('stack', stack);
