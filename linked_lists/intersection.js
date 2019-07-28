@@ -42,6 +42,8 @@ function intersection(left, right) {
 	var sizeLeft = length(left),
 		sizeRight = length(right);
 
+	// todo if tails are different return false
+
 	if (sizeLeft !== sizeRight) {
 		const diff = Math.abs(sizeLeft-sizeRight);
 		if (sizeLeft-sizeRight > 0) {
