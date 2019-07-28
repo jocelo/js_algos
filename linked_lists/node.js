@@ -3,6 +3,15 @@ const Node = function(value) {
 	this.next = null;
 }
 
+const listLength = function(list) {
+	var size = 0;
+	while(list) {
+		list = list.next;
+		size++;
+	}
+	return size;
+}
+
 const printList = function(node) {
 	var head = node;
 	var keepGoing = true;
@@ -19,5 +28,6 @@ const printList = function(node) {
 
 module.exports = {
 	Node: Node,
-	printList: printList
+	printList: printList,
+	len: listLength
 };
