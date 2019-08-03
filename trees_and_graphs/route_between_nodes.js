@@ -1,5 +1,5 @@
-const treeObj = require('./tree');
-const Node = treeObj.Node;
+const graphObj = require('./graph');
+const Node = graphObj.Node;
 
 const a = new Node('a');
 const b = new Node('b');
