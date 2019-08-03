@@ -1,7 +1,11 @@
 const Node = function(data) {
 	this.data = data;
-	this.left = null;
-	this.right = null;
+	this.children = [];
+
+	this.addEdge = function(node) {
+		// todo: validate if node already exists
+		this.children.push(node);
+	}
 }
 
 module.exports = {
