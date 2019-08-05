@@ -2,6 +2,8 @@ const Node = function(data) {
 	this.data = data;
 	this.left = null;
 	this.right = null;
+
+	this.head = this;
 }
 
 Node.prototype.append = function(data) {
@@ -24,22 +26,38 @@ Node.prototype.append = function(data) {
 
 Node.prototype.printTree = function() {
 	var queue = [];
+	var list = [];
+	var listOfLists = [];
+	var nextQueue = [];
 	var values = [];
-	var head = this;
-	queue.push(head);
+
+	queue.push(this.head);
 	
 	while(queue.length > 0) {
-		const current = queue.shift();
-		console.log('currnet', current);
-		values.push(current.data);
-		if (current.left) {
-			queue.push(current.left);
+		const node = queue.shift();
+		list.push(node.data);
+
+		if (node.left != null) {
+			nextQueue.push(node.left);
 		}
-		if (current.right) {
-			queue.push(current.right);
+		if (node.right != null) {
+			nextQueue.push(node.right);
+		}
+
+		if (queue.length == 0) {
+			listOfLists.push(list);
+			list = [];
+			queue = nextQueue;
+			nextQueue = [];
 		}
 	}
-	console.log(values);
+	
+	for (let i=0 ; i<listOfLists.length ; i++) {
+		const size = listOfLists.length - i;
+		let spaces = new Array(size);
+		spaces = spaces.join(' ');
+		console.log(spaces,listOfLists[i]);
+	}
 }
 
 module.exports = {
