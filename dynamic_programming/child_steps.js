@@ -1,38 +1,35 @@
-// n stairs by 1,2 or 3 steps
-
-var dynamic = {};
-var total = 0;
-
-function memoize(fn) {
+function memo(fn) {
 	const cache = {};
-	return function(...args) {
+
+	return function(...args){
 		if (cache[args]) {
 			return cache[args];
 		}
 
-		const result = fn.apply(this, args);
+		const result = fn(args);
 		cache[args] = result;
-
 		return result;
 	}
 }
 
-function howManyWays(n, loop=0) {
-	if (dynamic[n]) {
-		return dynamic[n];
+function child_steps_slow(n) {
+	if (n < 0) {
+		return 0;
 	}
 
-	if (n<0) {
-		return 0;
-	} else if (n==0) {
+	if (n == 0) {
 		return 1;
 	}
 
-	return newHowMany(n-1) + newHowMany(n-2) + newHowMany(n-3);
+	return child_steps(n-1) + child_steps(n-2) + child_steps(n-3);
 }
 
-const newHowMany = memoize(howManyWays);
+const child_steps = memo(child_steps_slow);
 
-console.log( newHowMany(11) );
-
-// console.log(howMany(50));
+console.log( child_steps(1), ' for (1) really is:', 1 );
+console.log( child_steps(2), ' for (2) really is:', 2 );
+console.log( child_steps(3), ' for (3) really is:', 4 );
+console.log( child_steps(4), ' for (4) really is:', 7 );
+console.log( child_steps(5), ' for (5) really is:', 13 );
+console.log( child_steps(15), ' for (15) really is:', 5768 );
+console.log( child_steps(20), ' for (20) really is:', 121415 );
